@@ -3,6 +3,8 @@ var messageDisplay = document.getElementById("messageDisplay")
 var dark           = document.getElementById("dark")
 var message        = document.getElementById("message")
 
+
+//event listener for Dark checkbox
 dark.addEventListener("input", (event)=>{
 	browser.storage.local.set({dark:event.target.checked})
 	var header = document.querySelector("head")
@@ -18,10 +20,12 @@ dark.addEventListener("input", (event)=>{
 	}
 })
 
+//event listener for show buttons on website or not
 interface.addEventListener("input", (event)=>{
 	browser.storage.local.set({displayInterface:event.target.checked})
 })
 
+//event listener for add text with images or not
 messageDisplay.addEventListener("input", (event)=>{
 	browser.storage.local.set({messageDisplay:event.target.checked})
 	if (event.target.checked)
@@ -34,6 +38,7 @@ messageDisplay.addEventListener("input", (event)=>{
 	}
 })
 
+//function to change the width of textarea in function of the lenght of each lines
 sizeFit = () =>{
 	var lines = message.value.split("\n")
 	var maxW = 46
@@ -45,11 +50,13 @@ sizeFit = () =>{
 	message.setAttribute("cols",maxW)
 }
 
+//event listener for message
 message.addEventListener("input", (event)=>{
 	browser.storage.local.set({message:event.target.value})
 	sizeFit()
 })
 
+//event listener for init dialog box
 browser.storage.local.get(["displayInterface","messageDisplay","message","dark"]).then((response)=>{
 	interface.checked      = response.displayInterface
 	messageDisplay.checked = response.messageDisplay

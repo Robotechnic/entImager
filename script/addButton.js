@@ -22,6 +22,7 @@ generateDelLink = (idCommunication) =>{
 				`?PROC=MESSAGERIE&ACTION=MASQUER_COMMUNICATION&ID_COMMUNICATION=${idCommunication}`
 }
 
+//generate definitive delete link
 generateDeffinitiveDelLink = (idCommunication) =>{
 	return `https://joseph-saverne.mon-ent-occitanie.fr/sg.do` +
 				`?PROC=MESSAGERIE&ACTION=MASQUER_COMMUNICATION_DEFINITIVE&ID_COMMUNICATION=${idCommunication}`
@@ -49,7 +50,7 @@ sendMessage.addEventListener('load', (event) => {
 	}
 })
 
-
+//in case of errors
 sendMessage.addEventListener('error', (event) => {
 	//console.log(sendMessage.status,sendMessage.responseText)
 	browser.runtime.sendMessage({
@@ -60,6 +61,7 @@ sendMessage.addEventListener('error', (event) => {
 	})
 })
 
+//in case of abort
 sendMessage.addEventListener('abort', (event) => {
 	//console.log(sendMessage.status,sendMessage.responseText)
 	browser.runtime.sendMessage({
@@ -69,6 +71,7 @@ sendMessage.addEventListener('abort', (event) => {
 		imageUrl:browser.extension.getURL("icons/icon96.png")
 	})
 })
+
 //send form function
 sendForm = (jsonData) =>{
 	var formDat = new FormData()
@@ -165,14 +168,14 @@ document.querySelectorAll(".row.row--full.list-enhanced1__item").forEach((elemen
 
 })
 
-
+//change the display of all buttons
 changeButtonsDisplay = (display = '') =>{
 	document.querySelectorAll(".entImagesDeleteButton").forEach((element)=>{
 		element.style.display = display
 	})
 }
 
-
+//init data with local storage
 browser.storage.local.get(["displayInterface","messageDisplay","message"]).then((response)=>{
 	if (!response.displayInterface){
 		changeButtonsDisplay("")
@@ -189,7 +192,7 @@ browser.storage.local.get(["displayInterface","messageDisplay","message"]).then(
 	}
 })
 
-
+//change if the storage change
 browser.storage.onChanged.addListener((event)=>{
 	
 	if (event.displayInterface){
