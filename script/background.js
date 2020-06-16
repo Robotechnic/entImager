@@ -1,7 +1,7 @@
 //display notification on notification message
 notification = (title,message,imageUrl) =>{
 	//console.log("Nouvelle notification",title,message,imageUrl)
-	browser.notifications.create({
+	chrome.notifications.create({
 		"type": "basic",
 		"iconUrl": imageUrl,
 		"title": title,
@@ -17,4 +17,4 @@ messagesListener = (request) =>{
 	}
 }
 
-browser.runtime.onMessage.addListener(messagesListener)
+chrome.runtime.onMessage.addListener(messagesListener)
