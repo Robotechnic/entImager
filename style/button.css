@@ -1,0 +1,10 @@
+.entImagesDeleteButton{;
+	border : none;
+	cursor : pointer;
+	background : transparent;
+	color : #bf0013;
+	border-radius : 10px;
+	margin : 5px;
+	padding : 5px;
+	z-index : 9999999999999999999;
+}
