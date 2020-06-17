@@ -37,5 +37,5 @@
 		"style/button.css"
 	],
 
-	"permissions": ["notifications","tabs","storage"]
+	"permissions": ["notifications","tabs","storage","declarativeContent"]
 }

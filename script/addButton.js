@@ -176,7 +176,7 @@ changeButtonsDisplay = (display = '') =>{
 }
 
 //init data with local storage
-chrome.storage.local.get(["displayInterface","messageDisplay","message"]).then((response)=>{
+chrome.storage.local.get(["displayInterface","messageDisplay","message"],(response)=>{
 	if (!response.displayInterface){
 		changeButtonsDisplay("")
 	} else {
@@ -194,6 +194,7 @@ chrome.storage.local.get(["displayInterface","messageDisplay","message"]).then((
 
 //change if the storage change
 chrome.storage.onChanged.addListener((event)=>{
+	console.log(event)
 	
 	if (event.displayInterface){
 		if (!event.displayInterface.newValue){

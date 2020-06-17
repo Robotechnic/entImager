@@ -57,7 +57,7 @@ message.addEventListener("input", (event)=>{
 })
 
 //event listener for init dialog box
-chrome.storage.local.get(["displayInterface","messageDisplay","message","dark"]).then((response)=>{
+chrome.storage.local.get(["displayInterface","messageDisplay","message","dark"],(response)=>{
 	interface.checked      = response.displayInterface
 	messageDisplay.checked = response.messageDisplay
 	dark.checked           = response.dark
