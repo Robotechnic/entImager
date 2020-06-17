@@ -14,25 +14,25 @@
 	"page_action": {
 		"default_icon": "icons/icon96.png",
 		"default_title": "Configurations",
-		"default_popup": "views/dialog.html",
-		"browser_style": true,
-		"show_matches": ["*://*.mon-ent-occitanie.fr/*"]
+		"default_popup": "views/dialog.html"
 	},
 
 	"content_scripts": [
 		{
 		  "matches": ["*://*.mon-ent-occitanie.fr/*"],
 		  "js": ["script/addButton.js"],
-		  "css": ["style/button.css"]
+		  "css": ["style/button.css"],
+		  "run_at": "document_end"
 		}
 	],
 
 	"background": {
-		"scripts": ["script/background.js"]
+		"scripts": ["script/background.js"],
+		"persistent":true	
 	},
 
 	"web_accessible_resources":[
-		"icons/trash.png", //https://icons8.com/icons/set/trashTrash icon icon by Icons8
+		"icons/trash.png", 
 		"icons/icon96.png",
 		"style/button.css"
 	],
