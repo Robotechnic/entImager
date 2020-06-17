@@ -1,3 +1,7 @@
+body{
+	min-width: 300px;
+}
+
 .hidden{
 	display: none;
 }
@@ -25,4 +29,3 @@ h1{
 	margin: none;
 	border-bottom: 2px solid black;
 }
-

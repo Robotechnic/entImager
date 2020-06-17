@@ -34,18 +34,18 @@ var sendMessage = new XMLHttpRequest()
 sendMessage.addEventListener('load', (event) => {
 	//console.log(sendMessage.status,sendMessage.responseText)
 	if (sendMessage.status == 200){
-		browser.runtime.sendMessage({
+		chrome.runtime.sendMessage({
 			type:"notification",
 			title:"Envoi d'un message",
 			message:"Le message a été correctement envoyé",
-			imageUrl:browser.extension.getURL("icons/icon96.png")
+			imageUrl:chrome.extension.getURL("icons/icon96.png")
 		})
 	} else {
-		browser.runtime.sendMessage({
+		chrome.runtime.sendMessage({
 			type:"notification",
 			title:"Envoi d'un message",
 			message:`Une erreur est survenue: code:${sendMessage.status}`,
-			imageUrl:browser.extension.getURL("icons/icon96.png")
+			imageUrl:chrome.extension.getURL("icons/icon96.png")
 		})
 	}
 })
@@ -53,22 +53,22 @@ sendMessage.addEventListener('load', (event) => {
 //in case of errors
 sendMessage.addEventListener('error', (event) => {
 	//console.log(sendMessage.status,sendMessage.responseText)
-	browser.runtime.sendMessage({
+	chrome.runtime.sendMessage({
 		type:"notification",
 		title:"Envoi d'un message",
 		message:`Une erreur est survenue (erreur interne)`,
-		imageUrl:browser.extension.getURL("icons/icon96.png")
+		imageUrl:chrome.extension.getURL("icons/icon96.png")
 	})
 })
 
 //in case of abort
 sendMessage.addEventListener('abort', (event) => {
 	//console.log(sendMessage.status,sendMessage.responseText)
-	browser.runtime.sendMessage({
+	chrome.runtime.sendMessage({
 		type:"notification",
 		title:"Envoi d'un message",
 		message:`Une erreur est survenue (requete annulée)`,
-		imageUrl:browser.extension.getURL("icons/icon96.png")
+		imageUrl:chrome.extension.getURL("icons/icon96.png")
 	})
 })
 
@@ -176,7 +176,7 @@ changeButtonsDisplay = (display = '') =>{
 }
 
 //init data with local storage
-browser.storage.local.get(["displayInterface","messageDisplay","message"]).then((response)=>{
+chrome.storage.local.get(["displayInterface","messageDisplay","message"],(response)=>{
 	if (!response.displayInterface){
 		changeButtonsDisplay("")
 	} else {
@@ -193,7 +193,8 @@ browser.storage.local.get(["displayInterface","messageDisplay","message"]).then(
 })
 
 //change if the storage change
-browser.storage.onChanged.addListener((event)=>{
+chrome.storage.onChanged.addListener((event)=>{
+	console.log(event)
 	
 	if (event.displayInterface){
 		if (!event.displayInterface.newValue){
