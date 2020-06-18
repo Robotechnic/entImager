@@ -1,7 +1,7 @@
 //display notification on notification message
 notification = (title,message,imageUrl) =>{
 	//console.log("Nouvelle notification",title,message,imageUrl)
-	chrome.notifications.create({
+	browser.notifications.create({
 		"type": "basic",
 		"iconUrl": imageUrl,
 		"title": title,
@@ -17,21 +17,7 @@ messagesListener = (request) =>{
 	}
 }
 
-chrome.runtime.onMessage.addListener(messagesListener)
+browser.runtime.onMessage.addListener(messagesListener)
 
+//setup page action
 
-//setup page action, only for chrome
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.declarativeContent.onPageChanged.removeRules(undefined,() => {
-    chrome.declarativeContent.onPageChanged.addRules([
-      {
-        conditions: [
-          new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { urlMatches: '(http|https):\/\/([a-z-])+.mon-ent-occitanie.([a-z]{2,4})' }, //match with ent url
-          })
-        ],
-        actions: [ new chrome.declarativeContent.ShowPageAction() ]
-      }
-    ])
-  })
-})

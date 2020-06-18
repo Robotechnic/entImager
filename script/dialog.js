@@ -5,8 +5,8 @@ var message        = document.getElementById("message")
 
 
 //event listener for Dark checkbox
-dark.addEventListener("input", (event)=>{
-	chrome.storage.local.set({dark:event.target.checked})
+dark.addEventListener("click", (event)=>{
+	browser.storage.local.set({dark:event.target.checked})
 	var header = document.querySelector("head")
 	if (event.target.checked){
 		var link = document.createElement("link")
@@ -21,13 +21,13 @@ dark.addEventListener("input", (event)=>{
 })
 
 //event listener for show buttons on website or not
-interface.addEventListener("input", (event)=>{
-	chrome.storage.local.set({displayInterface:event.target.checked})
+interface.addEventListener("click", (event)=>{
+	browser.storage.local.set({displayInterface:event.target.checked})
 })
 
 //event listener for add text with images or not
-messageDisplay.addEventListener("input", (event)=>{
-	chrome.storage.local.set({messageDisplay:event.target.checked})
+messageDisplay.addEventListener("click", (event)=>{
+	browser.storage.local.set({messageDisplay:event.target.checked})
 	if (event.target.checked)
 	{
 		message.className = ""	
@@ -52,12 +52,12 @@ sizeFit = () =>{
 
 //event listener for message
 message.addEventListener("input", (event)=>{
-	chrome.storage.local.set({message:event.target.value})
+	browser.storage.local.set({message:event.target.value})
 	sizeFit()
 })
 
 //event listener for init dialog box
-chrome.storage.local.get(["displayInterface","messageDisplay","message","dark"],(response)=>{
+browser.storage.local.get(["displayInterface","messageDisplay","message","dark"],(response)=>{
 	interface.checked      = response.displayInterface
 	messageDisplay.checked = response.messageDisplay
 	dark.checked           = response.dark

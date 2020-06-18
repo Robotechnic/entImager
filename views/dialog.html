@@ -6,25 +6,33 @@
 
 </head>
 <body>
-	<h1>Configuration</h1>
-	<nav>
-		<div class="checkboxGroup">
-			<input type="checkbox" name="dark" id="dark">
-			<label For="dark">Mode sombre</label>
-		</div>
-		<div class="checkboxGroup">
-			<input type="checkbox" name="interface" id="interface">
-			<label For="interface">Désactiver l'interface</label>
-		</div>
-		<div id="textGestion">
+	<section id="entPage">
+		<h1>Configuration</h1>
+		<nav>
 			<div class="checkboxGroup">
-				<input type="checkbox" name="messageDisplay" id="messageDisplay">
-				<label For="messageDisplay">Afficher un message avec l'image dans les réponses</label>
+				<input type="checkbox" name="dark" id="dark">
+				<label For="dark">Mode sombre</label>
 			</div>
-			<textarea id="message" placeholder="Message"></textarea>
-		</div>
+			<div class="checkboxGroup">
+				<input type="checkbox" name="interface" id="interface">
+				<label For="interface">Désactiver l'interface</label>
+			</div>
+			<div id="textGestion">
+				<div class="checkboxGroup">
+					<input type="checkbox" name="messageDisplay" id="messageDisplay">
+					<label For="messageDisplay">Afficher un message avec l'image dans les réponses</label>
+				</div>
+				<textarea id="message" placeholder="Message"></textarea>
+			</div>
 
-	</nav>
+		</nav>
+	</section>
+	<section id="notEnt">
+		<h1>Contenu introuvable</h1>
+		<p>
+			Veuillez aller sur une page ent.
+		</p>
+	</section>
 </body>
 <script type="text/javascript" src="/script/dialog.js"></script>
 </html>

@@ -29,3 +29,7 @@ h1{
 	margin: none;
 	border-bottom: 2px solid black;
 }
+
+#notEnt{
+	display: none;
+}
