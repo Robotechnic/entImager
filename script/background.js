@@ -19,5 +19,20 @@ messagesListener = (request) =>{
 
 browser.runtime.onMessage.addListener(messagesListener)
 
-//setup page action
+//setup browther action
+// disable if the page is not an ent page
 
+var entValidator = /(http|https):\/\/([a-z\-])+.mon-ent-occitanie.([a-z]{2,4})/
+
+manageBrowserAction = () =>{
+	browser.tabs.query({currentWindow: true, active: true},(tab)=>{
+		if (!Boolean(tab[0].url.match(entValidator))){
+			browser.browserAction.disable(tab[0].id)
+		}
+	})
+}
+
+
+browser.tabs.onActivated.addListener(manageBrowserAction)
+
+manageBrowserAction()
