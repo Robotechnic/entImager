@@ -5,5 +5,5 @@ Extention de navigateur qui affiche de nouveaux boutons sut la messagerie de l'e
 Ces boutons permettent d'envoyer des messages qui suppriment le message / la conversation de la personne qui charge le message.
 
 ## Compatibility
-For the moment, only firefox.
-Pour le moment, seulement firefox.
+This add on is compatible with firefox, google chrome and microsoft edge (HTML)
+Cet add on est compatible avec firefox, google chrome et microsoft edge (HTML)
