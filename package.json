@@ -1,0 +1,20 @@
+{
+  "name": "entimageshack",
+  "version": "1.0.0",
+  "description": "Presentation page of entImagesHack extention",
+  "scripts":{
+    "sass-compressed": "sass --watch ./scss/main.scss ./style/noprefix/style.css --style compressed",
+    "sass": "sass --watch ./scss/main.scss ./style/noprefix/style.css",
+    "prefix": "postcss ./style/noprefix/style.css --use autoprefixer -d ./style/ -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robotechnic/entImager.git"
+  },
+  "author": "Robotechnic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Robotechnic/entImager/issues"
+  },
+  "homepage": "https://github.com/Robotechnic/entImager#readme"
+}
