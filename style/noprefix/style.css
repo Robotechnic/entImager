@@ -6,6 +6,8 @@ body {
   padding: 0;
   color: #353535FF;
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -27,7 +29,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   width: 50vw;
-  height: 25px;
   margin: none;
 }
 .header__menu__link {
@@ -37,7 +38,9 @@ body {
   padding-bottom: 5px;
   text-decoration: none;
   color: inherit;
+  height: 25px;
   transition-duration: 0.5s;
+  text-align: center;
 }
 .header__menu__link:hover {
   color: #686868;
@@ -45,6 +48,27 @@ body {
   padding-left: 30px;
   padding-right: 30px;
   font-size: 20px;
+}
+@media screen and (max-width: 1025px) {
+  .header__title {
+    width: 60vw;
+  }
+  .header__menu {
+    width: 60vw;
+  }
+}
+@media screen and (max-width: 855px) {
+  .header__title {
+    width: 70vw;
+  }
+  .header__menu {
+    width: 70vw;
+  }
+}
+@media screen and (max-width: 734px) {
+  .header__menu {
+    flex-direction: column;
+  }
 }
 
 .footer {
@@ -69,9 +93,12 @@ body {
 .gitHubLink {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 .gitHubLink__content {
   margin: 10px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
