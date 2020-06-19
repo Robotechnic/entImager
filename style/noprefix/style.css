@@ -1,3 +1,77 @@
+/*
+	HEADER COLOR
+*/
+body {
+  margin: 0;
+  padding: 0;
+  color: #353535FF;
+  font-size: 16px;
+}
 
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header__title {
+  border-bottom: 2px solid blue;
+  margin-bottom: 0;
+  text-align: center;
+  width: 50vw;
+  padding: 2px;
+}
+.header__menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 50vw;
+  height: 25px;
+  margin: none;
+}
+.header__menu__link {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+  color: inherit;
+  transition-duration: 0.5s;
+}
+.header__menu__link:hover {
+  color: #686868;
+  transition-duration: 0.5s;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 20px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.pageContener {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.pageContener > * {
+  max-width: 70vw;
+}
+
+.gitHubLink {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gitHubLink__content {
+  margin: 10px;
+}
 
 /*# sourceMappingURL=style.css.map */
