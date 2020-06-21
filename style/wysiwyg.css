@@ -1,0 +1,14 @@
+.wysiwygEntImagerToolButton{
+	border:none;
+	background: none;
+	cursor: pointer;
+}
+
+.wysiwygEditorContener{
+	display: flex;
+	flex-direction: column;
+}
+
+#wysiwygEntImagerMessage{
+	padding: 10px;
+}

@@ -212,4 +212,4 @@ browser.storage.onChanged.addListener((event)=>{
 	}
 })
 
-console.log('loaded')
+// console.log('loaded')
