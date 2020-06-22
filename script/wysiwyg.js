@@ -16,6 +16,18 @@ fetch(doc).then((response)=>{
 			var dialog = document.getElementById('wysiwygEntImager')
 			dialog.classList.add("hide")
 		})
+
+		document.querySelectorAll(".wysiwygEntImagerToolButton").forEach((element)=>{
+			element.addEventListener("click",(event)=>{
+				var sender = event.target
+				if (event.target.nodeName != "button")
+					sender = sender.parentNode
+
+				var command = sender.name
+				console.log(command)
+				document.execCommand(command)
+			})
+		})
 	})
 })
 

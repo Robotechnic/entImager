@@ -11,4 +11,5 @@
 
 #wysiwygEntImagerMessage{
 	padding: 10px;
+	min-height: 40vh;
 }
