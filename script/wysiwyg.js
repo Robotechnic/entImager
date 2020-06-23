@@ -1,3 +1,19 @@
+selectElementContents = (el) => {
+    if (window.getSelection && document.createRange) {
+        var sel = window.getSelection()
+        var range = document.createRange()
+        range.selectNodeContents(el)
+        sel.removeAllRanges()
+        sel.addRange(range)
+    } else if (document.selection && document.body.createTextRange) {
+        var textRange = document.body.createTextRange()
+        textRange.moveToElementText(el)
+        textRange.select()
+    }
+}
+
+
+
 //add wysiwyg to the page
 var doc = browser.extension.getURL("/views/wysiwyg.html")
 console.log(doc)
@@ -26,6 +42,17 @@ fetch(doc).then((response)=>{
 				var command = sender.name
 				console.log(command)
 				document.execCommand(command)
+				//there is a bug with bold, so:
+				if (command = "bold"){
+					document.querySelectorAll("#wysiwygEntImagerMessage span").forEach((element) =>{
+						if(element.style = "font-weight: normal;"){
+							var b = document.createElement("b")
+							b.innerHTML = element.innerHTML
+							element.parentNode.replaceChild(b,element)
+							selectElementContents(b)
+						}
+					})
+				}
 			})
 		})
 	})
