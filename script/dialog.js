@@ -61,7 +61,7 @@ browser.storage.local.get(["displayInterface","messageDisplay","message","dark"]
 	interface.checked      = response.displayInterface
 	messageDisplay.checked = response.messageDisplay
 	dark.checked           = response.dark
-	message.value          = response.message
+	message.value          = response.message || ""
 	sizeFit()
 
 	var header = document.querySelector("head")

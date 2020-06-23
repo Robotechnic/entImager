@@ -87,8 +87,11 @@ sendForm = (jsonData) =>{
 
 //function for delButton's click event
 delButtonEvent = (mailLink,sender)=>{
+	var editorDialog = document.getElementById("wysiwygEntImager")
 
 	if (conf = confirm("Êtes vous sur de vouloir continuer?\nCette action est définitive et peut causer des problèmes au autres utilisateurs.")){
+		editorDialog.classList.add("modal--show")
+		editorDialog.classList.remove("hide")
 
 		var args = parseHrefArg(mailLink.href)
 
@@ -114,7 +117,7 @@ delButtonEvent = (mailLink,sender)=>{
 
 		}
 
-		sendForm(form)
+		//sendForm(form)
 	}
 }
 
