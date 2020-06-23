@@ -25,18 +25,22 @@ interface.addEventListener("input", (event)=>{
 	browser.storage.local.set({displayInterface:event.target.checked})
 })
 
-//event listener for add text with images or not
-messageDisplay.addEventListener("input", (event)=>{
-	browser.storage.local.set({messageDisplay:event.target.checked})
-	if (event.target.checked)
-	{
-		message.className = ""	
-	}
-	else
-	{
-		message.className = "hidden"
-	}
+//event listener for message
+document.getElementsByName("messageDisplay").forEach((element)=>{
+	element.addEventListener("click", (event)=>{
+		console.log(event.target.value)
+		browser.storage.local.set({messageDisplay:event.target.value})
+		if (event.target.value == "default")
+		{
+			message.className = ""	
+		}
+		else
+		{
+			message.className = "hidden"
+		}
+	})
 })
+
 
 //function to change the width of textarea in function of the lenght of each lines
 sizeFit = () =>{
@@ -58,10 +62,11 @@ message.addEventListener("input", (event)=>{
 
 //event listener for init dialog box
 browser.storage.local.get(["displayInterface","messageDisplay","message","dark"]).then((response)=>{
-	interface.checked      = response.displayInterface
-	messageDisplay.checked = response.messageDisplay
-	dark.checked           = response.dark
-	message.value          = response.message || ""
+	interface.checked    = response.displayInterface
+	document.querySelector(`input[type='radio'][value='${response.messageDisplay || "perso"}']`).checked = true
+	//messageDisplay.value = response.messageDisplay || "perso"
+	dark.checked         = response.dark
+	message.value        = response.message || ""
 	sizeFit()
 
 	var header = document.querySelector("head")
