@@ -1,7 +1,5 @@
-//define user message with config
-
 var message = ""
-var displayMessage = false
+var messageType = "perso"
 
 
 //parse href of mail link
@@ -85,14 +83,31 @@ sendForm = (jsonData) =>{
 	sendMessage.send(formDat)
 }
 
+createCustomMessage = () =>{
+	var message = document.getElementById("wysiwygEntImagerMessage").innerHTML
+	var form = {
+		ACTION: "AJOUTER_PARTICIPATION_FIL_MESSAGES",
+		ID_COMMUNICATION: args["ID_COMMUNICATION"],
+		MESSAGE_PARTICIPATION:`<p>${message}</p><p><img src="${delLink}"></p>`,
+		NOM_ACTION: "AJOUTER_PARTICIPATION_FIL_MESSAGES",
+		PIECEJOINTE_REP: "",
+		PROC: "MESSAGERIE",
+		SERVICE_COURANT: "MESSAGERIE",
+		SUJET: mailLink.innerText,
+		LOCALE: "0",
+		PIECEJOINTE_REP: "",
+		PJ_HAS_CHANGED: "false",
+
+	}
+
+	sendForm(form)
+}
+
 //function for delButton's click event
 delButtonEvent = (mailLink,sender)=>{
 	var editorDialog = document.getElementById("wysiwygEntImager")
 
 	if (conf = confirm("Êtes vous sur de vouloir continuer?\nCette action est définitive et peut causer des problèmes au autres utilisateurs.")){
-		editorDialog.classList.add("modal--show")
-		editorDialog.classList.remove("hide")
-
 		var args = parseHrefArg(mailLink.href)
 
 		var delLink = ""
@@ -102,22 +117,35 @@ delButtonEvent = (mailLink,sender)=>{
 		else
 			delLink = generateDelLink(args["ID_COMMUNICATION"])
 
-		var form = {
-			ACTION: "AJOUTER_PARTICIPATION_FIL_MESSAGES",
-			ID_COMMUNICATION: args["ID_COMMUNICATION"],
-			MESSAGE_PARTICIPATION:`<p>${message}</p><p><img src="${delLink}"></p>`,
-			NOM_ACTION: "AJOUTER_PARTICIPATION_FIL_MESSAGES",
-			PIECEJOINTE_REP: "",
-			PROC: "MESSAGERIE",
-			SERVICE_COURANT: "MESSAGERIE",
-			SUJET: mailLink.innerText,
-			LOCALE: "0",
-			PIECEJOINTE_REP: "",
-			PJ_HAS_CHANGED: "false",
-
+		if (messageType == "none"){
+			 message = ""
 		}
 
-		//sendForm(form)
+		if (messageType != "perso"){
+			var form = {
+				ACTION: "AJOUTER_PARTICIPATION_FIL_MESSAGES",
+				ID_COMMUNICATION: args["ID_COMMUNICATION"],
+				MESSAGE_PARTICIPATION:`<p>${message}</p><p><img src="${delLink}"></p>`,
+				NOM_ACTION: "AJOUTER_PARTICIPATION_FIL_MESSAGES",
+				PIECEJOINTE_REP: "",
+				PROC: "MESSAGERIE",
+				SERVICE_COURANT: "MESSAGERIE",
+				SUJET: mailLink.innerText,
+				LOCALE: "0",
+				PIECEJOINTE_REP: "",
+				PJ_HAS_CHANGED: "false",
+
+			}
+
+			sendForm(form)
+		} else {
+			editorDialog.classList.add("modal--show")
+			editorDialog.classList.remove("hide")
+
+			document.getElementById("validate").addEventListener("click",(event)=>{
+				createCustomMessage()
+			})
+		}
 	}
 }
 
@@ -191,7 +219,7 @@ browser.storage.local.get(["displayInterface","messageDisplay","message"]).then(
 	}
 
 	if (response.messageDisplay){
-		displayMessage = event.messageDisplay.newValue
+		messageType = event.messageDisplay.newValue
 	}
 })
 
@@ -211,7 +239,7 @@ browser.storage.onChanged.addListener((event)=>{
 	}
 
 	if (event.messageDisplay){
-		displayMessage = event.messageDisplay.newValue
+		messageType = event.messageDisplay.newValue
 	}
 })
 

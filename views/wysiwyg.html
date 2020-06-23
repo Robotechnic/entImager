@@ -13,40 +13,42 @@
 		<div class="cke_1 cke cke_reset cke_chrome cke_editor_MESSAGE cke_ltr cke_browser_gecko wysiwygEditorContener">
 			<div class="cke_top">
 			<nav class="cke_toolgroup" class="cke_toolbar cke_toolbar_last">
-				<button class="wysiwygEntImagerToolButton" name="bold">
+				<button class="cke_button wysiwygEntImagerToolButton" name="bold">
 					<span class="cke_button_icon cke_button__bold_icon" style="background-image:url('https://cdn.mon-ent-occitanie.fr/web-resources/ckeditor/59ce25bc95b78756949301881fb8e7fa/ckeditor/plugins/icons.png?t=I63C');background-position:0 -264px;background-size:auto;">&nbsp;</span>
 				</button>
-				<button class="wysiwygEntImagerToolButton" name="italic">
+				<button class="cke_button wysiwygEntImagerToolButton" name="italic">
 					<span class="cke_button_icon cke_button__italic_icon" style="background-image:url('https://cdn.mon-ent-occitanie.fr/web-resources/ckeditor/59ce25bc95b78756949301881fb8e7fa/ckeditor/plugins/icons.png?t=I63C');background-position:0 -288px;background-size:auto;">&nbsp;</span>
 				</button>
-				<button class="wysiwygEntImagerToolButton" name="insertOrderedList">
+				<button class="cke_button wysiwygEntImagerToolButton" name="insertOrderedList">
 					<span class="cke_button_icon cke_button__numberedlist_icon" style="background-image:url('https://cdn.mon-ent-occitanie.fr/web-resources/ckeditor/59ce25bc95b78756949301881fb8e7fa/ckeditor/plugins/icons.png?t=I63C');background-position:0 -1416px;background-size:auto;">&nbsp;</span>
 				</button>
-				<button class="wysiwygEntImagerToolButton" name="insertUnorderedList">
+				<button class="cke_button wysiwygEntImagerToolButton" name="insertUnorderedList">
 					<span class="cke_button_icon cke_button__bulletedlist_icon" style="background-image:url('https://cdn.mon-ent-occitanie.fr/web-resources/ckeditor/59ce25bc95b78756949301881fb8e7fa/ckeditor/plugins/icons.png?t=I63C');background-position:0 -1368px;background-size:auto;">&nbsp;</span>
 				</button>
-				<button class="wysiwygEntImagerToolButton" name="subscript">
+				<button class="cke_button wysiwygEntImagerToolButton" name="subscript">
 					<span class="cke_button_icon cke_button__subscript_icon" style="background-image:url('https://cdn.mon-ent-occitanie.fr/web-resources/ckeditor/59ce25bc95b78756949301881fb8e7fa/ckeditor/plugins/icons.png?t=I63C');background-position:0 -336px;background-size:auto;">&nbsp;</span>
 				</button>
-				<button class="wysiwygEntImagerToolButton" name="superscript">
+				<button class="cke_button wysiwygEntImagerToolButton" name="superscript">
 					<span class="cke_button_icon cke_button__superscript_icon" style="background-image:url('https://cdn.mon-ent-occitanie.fr/web-resources/ckeditor/59ce25bc95b78756949301881fb8e7fa/ckeditor/plugins/icons.png?t=I63C');background-position:0 -360px;background-size:auto;">&nbsp;</span>
 				</button>
 			</nav>
 			</div>
-			<div contenteditable="true" id="wysiwygEntImagerMessage" class="cke_wysiwyg_div cke_reset cke_enable_context_menu cke_editable cke_editable_themed cke_contents_ltr">
-				<p>
-					<br>
-				</p>
+			<div class="form__line">
+				<div contenteditable="true" id="wysiwygEntImagerMessage" class="cke_wysiwyg_div cke_reset cke_enable_context_menu cke_editable cke_editable_themed cke_contents_ltr">
+					<p>
+						<br>
+					</p>
+				</div>
 			</div>
 		</div>
 		</div>
 	</div>
 	<div class="modal__footer js-modal__footer">
 		<div class="modal__footer-action modal__footer-action-primary">
-			<button class="btn btn--primary js-boutonEnvoyerNouveauMessage">Envoyer</button>
+			<button class="btn btn--primary" id="validate">Envoyer</button>
 		</div>
 		<div class="modal__footer-action modal__footer-action-secondary">
-			<button class="btn btn--warn js-boutonSupprimerBrouillon">Annuler</button>
+			<button class="btn btn--warn" id="cancel">Annuler</button>
 		</div>
 	</div>
 </div>
