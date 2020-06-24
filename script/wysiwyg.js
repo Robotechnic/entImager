@@ -12,7 +12,8 @@ selectElementContents = (el) => {
     }
 }
 
-dislogDisplay = (display) =>{
+dislogDisplay = (display,editorDialog) =>{
+	//console.log(display)
 	if (display){
 		editorDialog.classList.add("modal--show")
 		editorDialog.classList.remove("hide")
@@ -47,10 +48,6 @@ fetch(doc).then((response)=>{
 		document.querySelector("body").insertAdjacentHTML("beforeend",responseText)
 
 		//add event listener
-		document.getElementById("wysiwygEntImagerClose").addEventListener("click", (event)=>{
-			var dialog = document.getElementById('wysiwygEntImager')
-			dislogDisplay(false)
-		})
 		var editor = document.getElementById("wysiwygEntImagerMessage")
 
 		editor.addEventListener("click",setButtonSelected)
@@ -80,18 +77,24 @@ fetch(doc).then((response)=>{
 				setButtonSelected()
 			})
 		})
-	})
 
-	document.getElementById("validate").addEventListener("click",(event)=>{
-		var dialog = document.getElementById('wysiwygEntImager')
-		console.log('validate')
-		dislogDisplay(false)
-	})
+		document.getElementById("validate").addEventListener("click",(event)=>{
+			var dialog = document.getElementById('wysiwygEntImager')
+			//console.log('validate')
+			dislogDisplay(false,dialog)
+		})
 
-	document.getElementById("cancel").addEventListener("click",(event)=>{
-		var dialog = document.getElementById('wysiwygEntImager')
-		console.log('cancel')
-		dislogDisplay(false)
+		document.getElementById("cancel").addEventListener("click",(event)=>{
+			var dialog = document.getElementById('wysiwygEntImager')
+			//console.log('cancel')
+			dislogDisplay(false,dialog)
+		})
+
+		document.getElementById("wysiwygEntImagerClose").addEventListener("click", (event)=>{
+			var dialog = document.getElementById('wysiwygEntImager')
+			//console.log('close')
+			dislogDisplay(false,dialog)
+		})
 	})
 })
 
