@@ -35,7 +35,7 @@
 		"icons/trash.png", //https://icons8.com/icons/set/trashTrash icon icon by Icons8
 		"icons/icon96.png",
 		"style/button.css",
-		"view/wysiwyg.html"
+		"views/wysiwyg.html"
 	],
 
 	"permissions": ["notifications","tabs","storage","declarativeContent"]
