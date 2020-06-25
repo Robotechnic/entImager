@@ -6,40 +6,33 @@
 
 </head>
 <body>
-	<section id="entPage">
-		<h1>Configuration</h1>
-		<nav>
+	<h1>Configuration</h1>
+	<nav>
+		<div class="checkboxGroup">
+			<input type="checkbox" name="dark" id="dark">
+			<label For="dark">Mode sombre</label>
+		</div>
+		<div class="checkboxGroup">
+			<input type="checkbox" name="interface" id="interface">
+			<label For="interface">Désactiver l'interface</label>
+		</div>
+		<div id="textGestion">
 			<div class="checkboxGroup">
-				<input type="checkbox" name="dark" id="dark">
-				<label For="dark">Mode sombre</label>
+				<input type="radio" name="messageDisplay" id="messageNone" value="none">
+				<label For="messageNone">Pas de message</label>
 			</div>
 			<div class="checkboxGroup">
-				<input type="checkbox" name="interface" id="interface">
-				<label For="interface">Désactiver l'interface</label>
+				<input type="radio" name="messageDisplay" id="messagePerso" value="perso">
+				<label For="messagePerso">Message personalisé</label>
 			</div>
-			<div id="textGestion">
-				<div class="checkboxGroup">
-					<input type="radio" name="messageDisplay" id="messageNone" value="none">
-					<label For="messageNone">Pas de message</label>
-				</div>
-				<div class="checkboxGroup">
-					<input type="radio" name="messageDisplay" id="messagePerso" value="perso">
-					<label For="messagePerso">Message personalisé</label>
-				</div>
-				<div class="checkboxGroup">
-					<input type="radio" name="messageDisplay" id="messageDisplay" value="default">
-					<label For="messageDisplay">Message par défault</label>
-				</div>
-				<textarea id="message" placeholder="Exemple: 😈"></textarea>
+			<div class="checkboxGroup">
+				<input type="radio" name="messageDisplay" id="messageDisplay" value="default">
+				<label For="messageDisplay">Message par défault</label>
 			</div>
-		</nav>
-	</section>
-	<section id="notEnt">
-		<h1>Contenu introuvable</h1>
-		<p>
-			Veuillez aller sur une page ent.
-		</p>
-	</section>
+			<textarea id="message" placeholder="Exemple: 😈"></textarea>
+		</div>
+
+	</nav>
 </body>
 <script type="text/javascript" src="/script/dialog.js"></script>
 </html>
