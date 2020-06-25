@@ -26,7 +26,7 @@ interface.addEventListener("click", (event)=>{
 })
 
 //event listener for message
-document.getElementsByName("messageDisplay").forEach((element)=>{
+Array.from(document.getElementsByName("messageDisplay")).forEach((element)=>{
 	element.addEventListener("click", (event)=>{
 		console.log(event.target.value)
 		browser.storage.local.set({messageDisplay:event.target.value})
