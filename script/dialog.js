@@ -79,7 +79,7 @@ browser.storage.local.get(["displayInterface","messageDisplay","message","dark"]
 		header.appendChild(link)
 	}
 
-	if (response.messageDisplay)
+	if (response.messageDisplay == "default")
 	{
 		message.className = ""	
 	}
