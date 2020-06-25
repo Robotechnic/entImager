@@ -25,7 +25,7 @@ dislogDisplay = (display,editorDialog) =>{
 
 //add wysiwyg to the page
 var doc = chrome.extension.getURL("/views/wysiwyg.html")
-console.log(doc)
+//console.log(doc)
 
 var temp = document.getElementById("wysiwygEntImager")
 if ( temp !== null)

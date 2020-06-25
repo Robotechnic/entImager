@@ -219,7 +219,7 @@ chrome.storage.local.get(["displayInterface","messageDisplay","message"],(respon
 	}
 
 	if (response.messageDisplay){
-		messageType = event.messageDisplay.newValue
+		messageType = response.messageDisplay.newValue
 	}
 })
 
