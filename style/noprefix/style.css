@@ -89,6 +89,20 @@ body {
 .pageContener > * {
   max-width: 70vw;
 }
+.pageContener img {
+  border: solid 1px black;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.horisontalImg {
+  display: flex;
+  flex-direction: row;
+}
 
 .gitHubLink {
   display: flex;
