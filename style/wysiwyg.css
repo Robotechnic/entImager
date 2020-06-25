@@ -1,0 +1,26 @@
+.wysiwygEntImagerToolButton{
+	border:none;
+	background: none;
+	cursor: pointer;
+	height: 100%;
+	padding-bottom: 5px;
+}
+
+.wysiwygEntImagerToolButton.active{
+	background:#c1f1f1;
+}
+
+.wysiwygEditorContener{
+	display: flex;
+	flex-direction: column;
+	font-weight: normal;
+}
+
+.wysiwygEditorContener p, li{
+	font-weight: normal;
+}
+
+#wysiwygEntImagerMessage{
+	padding: 10px;
+	min-height: 40vh;
+}

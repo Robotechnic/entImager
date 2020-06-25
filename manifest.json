@@ -20,8 +20,8 @@
 	"content_scripts": [
 		{
 		  "matches": ["*://*.mon-ent-occitanie.fr/*"],
-		  "js": ["script/addButton.js"],
-		  "css": ["style/button.css"],
+		 "js": ["script/wysiwyg.js","script/addButton.js"],
+		  "css": ["style/button.css","style/wysiwyg.css"],
 		  "run_at": "document_end"
 		}
 	],
@@ -34,7 +34,8 @@
 	"web_accessible_resources":[
 		"icons/trash.png", 
 		"icons/icon96.png",
-		"style/button.css"
+		"style/button.css",
+		"view/wysiwyg.html"
 	],
 
 	"permissions": ["notifications","tabs","storage","declarativeContent"]
