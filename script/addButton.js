@@ -83,24 +83,24 @@ sendForm = (jsonData) =>{
 	sendMessage.send(formDat)
 }
 
-createCustomMessage = () =>{
+createCustomMessage = (delLink,subject,idCommunication) =>{
 	var message = document.getElementById("wysiwygEntImagerMessage").innerHTML
-	var form = {
+	message = `${message}<p><img src="${delLink}"></p>`
+	var formCustom = {
 		ACTION: "AJOUTER_PARTICIPATION_FIL_MESSAGES",
-		ID_COMMUNICATION: args["ID_COMMUNICATION"],
-		MESSAGE_PARTICIPATION:`<p>${message}</p><p><img src="${delLink}"></p>`,
+		ID_COMMUNICATION: idCommunication,
+		MESSAGE_PARTICIPATION:message,
 		NOM_ACTION: "AJOUTER_PARTICIPATION_FIL_MESSAGES",
 		PIECEJOINTE_REP: "",
 		PROC: "MESSAGERIE",
 		SERVICE_COURANT: "MESSAGERIE",
-		SUJET: mailLink.innerText,
+		SUJET: subject,
 		LOCALE: "0",
 		PIECEJOINTE_REP: "",
 		PJ_HAS_CHANGED: "false",
 
 	}
-
-	sendForm(form)
+	sendForm(formCustom)
 }
 
 //function for delButton's click event
@@ -142,9 +142,9 @@ delButtonEvent = (mailLink,sender)=>{
 			editorDialog.classList.add("modal--show")
 			editorDialog.classList.remove("hide")
 
-			document.getElementById("validate").addEventListener("click",(event)=>{
-				createCustomMessage()
-			})
+			document.getElementById("validate").onclick = (event)=>{
+				createCustomMessage(delLink,mailLink.innerText,args["ID_COMMUNICATION"])
+			}
 		}
 	}
 }
