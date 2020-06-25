@@ -1,0 +1,19 @@
+.downloadLink{
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+	text-decoration: none;
+	&__name{
+		text-decoration: none;
+		color: black;
+		margin:2px;
+		width:100%;
+		text-align: center;
+	}
+
+	&__image{
+		border:none !important;
+		width: 64px;
+		height: 64px;
+	}
+}

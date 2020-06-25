@@ -104,6 +104,24 @@ img {
   flex-direction: row;
 }
 
+.downloadContener {
+  display: grid;
+  width: 100%;
+  row-gap: 30px;
+  column-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+@media screen and (max-width: 880px) {
+  .downloadContener {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 550px) {
+  .downloadContener {
+    grid-template-columns: 1fr;
+  }
+}
+
 .gitHubLink {
   display: flex;
   flex-wrap: wrap;
@@ -113,6 +131,25 @@ img {
 .gitHubLink__content {
   margin: 10px;
   text-align: center;
+}
+
+.downloadLink {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+}
+.downloadLink__name {
+  text-decoration: none;
+  color: black;
+  margin: 2px;
+  width: 100%;
+  text-align: center;
+}
+.downloadLink__image {
+  border: none !important;
+  width: 64px;
+  height: 64px;
 }
 
 /*# sourceMappingURL=style.css.map */
