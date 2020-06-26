@@ -17,7 +17,7 @@
 }
 
 .wysiwygEditorContener p, li{
-	font-weight: normal;
+	font-weight: normal !important;
 }
 
 #wysiwygEntImagerMessage{
