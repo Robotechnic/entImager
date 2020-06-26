@@ -219,13 +219,13 @@ browser.storage.local.get(["displayInterface","messageDisplay","message"],(respo
 	}
 
 	if (response.messageDisplay){
-		messageType = event.messageDisplay.newValue
+		messageType = response.messageDisplay
 	}
 })
 
 //change if the storage change
 browser.storage.onChanged.addListener((event)=>{
-	console.log(event)
+	//console.log(event)
 	
 	if (event.displayInterface){
 		if (!event.displayInterface.newValue){

@@ -44,6 +44,7 @@ setButtonSelected = () =>{
 
 fetch(doc).then((response)=>{
 	response.text().then((responseText)=>{
+		//console.log(responseText)
 		//add element
 		document.querySelector("body").insertAdjacentHTML("beforeend",responseText)
 
