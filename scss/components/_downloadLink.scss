@@ -3,6 +3,7 @@
 	flex-direction: column;
 	cursor: pointer;
 	text-decoration: none;
+	
 	&__name{
 		text-decoration: none;
 		color: black;
@@ -15,5 +16,25 @@
 		border:none !important;
 		width: 64px;
 		height: 64px;
+	}
+
+	&__version{
+		text-align: center;
+		text-decoration: none;
+		color:black;
+	}
+
+	&-waitForData{
+		>*{
+			display: none;
+		}
+
+		background: url("file:///home/robotechnic/Documents/ExtentionsFirefox/EntImagesHack/images/wait.gif");
+
+		width: 100px;
+		height: 100px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		justify-self: center;
 	}
 }
